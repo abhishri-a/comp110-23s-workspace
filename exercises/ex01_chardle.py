@@ -28,5 +28,7 @@ if fiveCharacterWord[4] == singleCharacter:
     print(singleCharacter + " found at index 4")
     counter = counter+1
 
-print(str(counter) + " instances of " + singleCharacter +  " found in " + fiveCharacterWord)
-
+if counter>1:
+    print(str(counter) + " instances of " + singleCharacter +  " found in " + fiveCharacterWord)
+else:
+    print(str(counter) + " instance of " + singleCharacter +  " found in " + fiveCharacterWord)
