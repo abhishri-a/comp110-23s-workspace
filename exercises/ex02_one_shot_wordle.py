@@ -14,7 +14,7 @@ YELLOW_BOX: str = "\U0001F7E8"
 user_guess = input(f"What is your {len(secret_word)}-letter guess? ")
 
 
-# While loop to test guess
+#  Test user's guess
 valid = False
 guess_index = 0
 boxes = ""
@@ -25,13 +25,13 @@ while valid is False:
         valid = True
 
 
-        # Create while loop to make the color string
+        # While loop to create box pattern
         while guess_index < len(user_guess):
             if user_guess[guess_index] == secret_word[guess_index]:
                 boxes += f"{GREEN_BOX}"
             else:
                 chr_exists = False
-                # While loop to see if the letter is in the word, doesn't matter about where it is
+                # While loop to see if the letter is present somewhere else in the word
                 secret_index = 0
                 while chr_exists is False and secret_index < len(secret_word):
                     if user_guess[guess_index] == secret_word[secret_index]:
