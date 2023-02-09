@@ -2,80 +2,61 @@
 
 __author__ = "730554082"
 
+
+# Define variables
 secret_word = "python"
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
-user_guess: str = input("What is your 6-letter guess? ")
-letter_index = 0
-location_index = 0
-result = ""
-location: bool = False
 
-while user_guess != secret_word:
+# Ask user for guess
+user_guess = input(f"What is your {len(secret_word)}-letter guess? ")
 
-    while len[user_guess] != len[secret_word]:
-        user_guess: str = input("That was not 6 letters! Try again: ")    
-    
-    while letter_index < len[secret_word]:
-        if secret_word[letter_index] == user_guess[letter_index]:
-            result += f"{GREEN_BOX}"
-        else:
-            while location_index < len[secret_word]:
-                if user_guess[letter_index] == secret_word[location_index]:
-                    location = True
-                    break
-                else:
-                    location = False
-                location += 1
-            if location == True:
-                result += f"{YELLOW_BOX}"
+
+# While loop to test guess
+valid = False
+guess_index = 0
+boxes = ""
+
+
+while valid is False:
+    if len(user_guess) == len(secret_word):
+        valid = True
+
+
+        # Create while loop to make the color string
+        while guess_index < len(user_guess):
+            if user_guess[guess_index] == secret_word[guess_index]:
+                boxes += f"{GREEN_BOX}"
             else:
-                result += f"{WHITE_BOX}"
-        letter_index += 1
-        location_index = 0
-    print(result)
-    letter_index = 0
-    result = ""
-    user_guess: str = input("Not quite. Play again soon! ")
-
-print ("Woo! You got it!")
-
-
-"""letter_index = 0
-j = 0
-other: bool = False
-user_guess: str = input("What is your 6-letter guess? ")
-result = ""
+                chr_exists = False
+                # While loop to see if the letter is in the word, doesn't matter about where it is
+                secret_index = 0
+                while chr_exists is False and secret_index < len(secret_word):
+                    if user_guess[guess_index] == secret_word[secret_index]:
+                        chr_exists = True
+                    else:
+                        secret_index += 1
 
 
- 
-
-while user_guess != secret:
-    while len(user_guess)!=6:
-    user_guess: str = input("That was not 6 letters! Try again: ")
-
-    while letter_index < 6:
-        if secret[letter_index] == user_guess[i]:
-            result = f"{result} {GREEN_BOX}"
-        else:
-           while j < 6:
-                if secret[i] == user_guess[j]:
-                    other = True
-                    break
+                if chr_exists is True:
+                    boxes += f"{YELLOW_BOX}"
                 else:
-                    j+=1
-                    other = False
-            if other is True:
-                result = f"{result} {YELLOW_BOX}"
-            else:
-                result = f"{result} {WHITE_BOX}"         
-        i+=1
-        j = 0
-    print (result)
-    i = 0
-    result = ""
-    user_guess: str = input("Not quite. Play again soon! ")
+                    boxes += f"{WHITE_BOX}"
+            guess_index += 1
 
-print ("Woo! You got it!")"""
+
+        print(boxes)
+
+
+        # Tell user if their guess was correct        
+        if user_guess == secret_word:
+            print("Woo! You got it!")
+        else:
+            print("Not quite. Play again soon!")
+    else:
+        user_guess = input(f"That was not {len(secret_word)} letters! Try again: ")
+
+
+
