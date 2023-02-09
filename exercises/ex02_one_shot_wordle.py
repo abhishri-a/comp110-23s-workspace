@@ -50,7 +50,7 @@ while valid is False:
         print(boxes)
 
 
-        # Tell user if their guess was correct        
+        # Print result for user        
         if user_guess == secret_word:
             print("Woo! You got it!")
         else:
