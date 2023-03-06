@@ -1,4 +1,4 @@
-"""Writing out utility functions"""
+"""Writing out utility function!"""
 
 __author__ = "730554082"
 
@@ -14,7 +14,7 @@ def only_evens(list1: list[int]) -> list[int]:
 
 def concat(list1: list[int], list2: list[int]) -> list[int]:
     """Given two lists, concatenate them."""
-    lists = [list1,list2]
+    lists = [list1, list2]
     final = []
     for i in lists:
         for num in i:
